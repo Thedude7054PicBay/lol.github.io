@@ -1,9 +1,54 @@
+<html>
+<head>
 <title>The Team Hybrid Olympics</title>
-<html><b>Welcome To the official page of the Team Hybrid Olympics!</b></html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script>
+var events = [
+	{name:"Penny Barge",scores:[
+		{team:"Knuckleheads", score:23},
+		{team:"NoodleNoggins", score:37},
+	]},
+	{name:"Spitting Contest",scores:[
+		{team:"Knuckleheads", score:42},
+		{team:"NoodleNoggins", score:12},
+	]},
+	{name:"Iron Chef Connecticut"},
+	{name:"Andrew Smeells"},
+];
+
+angular.module('myApp', [])
+ .controller('MyController', ['$scope', function($scope) {
+    $scope.events = events  
+    $scope.selected = events[0]; 
+  }]);
+
+</script>
+</head>
+<body ng-app="myApp" ng-controller="MyController">
+<div class='container'>
+
+<h3>Welcome To the official page of the Team Hybrid Olympics!</h3>
 <marquee behavior="scroll" direction="left"><font color="blue">The First event has been moved from Friday March 6, to Friday March 13.</font></marquee>
 
-<div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn btn-default">Left</button>
-  <button type="button" class="btn btn-default">Middle</button>
-  <button type="button" class="btn btn-default">Right</button>
+
+<div ng-repeat="event in events">
+<button class='btn btn-primary'
+	ng-click='$parent.selected = event'
+>{{event.name}}</button>
 </div>
+
+<table class='table table-striped'>
+<thead><th>Team name</th><th>Score</th></thead>
+<tbody>
+<tr ng-repeat="team in selected.scores">
+	<td>{{team.team}}</td>
+	<td>{{team.score}}</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</body>
+</html>
