@@ -101,6 +101,24 @@ angular.module('myApp', [])
 <body ng-app="myApp" ng-controller="MyController">
 <div class='container'>
 
+<script type="text/javascript">
+function detectBrowser()
+{
+var browser=navigator.appName;
+var b_version=navigator.appVersion;
+var version=parseFloat(b_version);
+if (browser=="Microsoft Internet Explorer")
+  && (version>=8))
+  {
+  alert("Your browser is good enough!");
+  }
+  else
+  {
+  alert("It's time to upgrade your browser!");
+  }
+  }
+ </script>
+
 Want to look at the code behind the website? Go to <a href='https://github.com/Thedude7054/thedude7054.github.io'>https://github.com/Thedude7054/thedude7054.github.io</a>
 
 The schedule for each event is <a href='https://docs.google.com/spreadsheets/d/184T4L3FmELmS3OOhL3x3jJpspDtH8IhCXDzyP-oULSY/pubhtml?gid=1544803907&single=true'>Here</a>
