@@ -94,38 +94,39 @@ var events = [
 
 angular.module('myApp', [])
  .controller('MyController', ['$scope', function($scope) {
-    $scope.events = events  
-    $scope.selected = events[0]; 
+	$scope.selectedName = events[0].name;
+    $scope.events = events;
+	$scope.selected = events[0];
+	$scope.select = function(name){
+		for (var i in events){
+			var e = events[i];
+			if (e.name == name){
+				$scope.selected = e;
+				return;
+			}
+		}
+	}
   }]);
 
 </script>
+
 </head>
 <body ng-app="myApp" ng-controller="MyController">
+
 <div class='container'>
 
-Want to look at the code behind the website? Go to <a href='https://github.com/Thedude7054/thedude7054.github.io'>https://github.com/Thedude7054/thedude7054.github.io</a>
-
-The schedule for each event is <a href='https://docs.google.com/spreadsheets/d/184T4L3FmELmS3OOhL3x3jJpspDtH8IhCXDzyP-oULSY/pubhtml?gid=1544803907&single=true'>Here</a>
-
-<script>
-
-    alert("I will be giving the Team Hybrid Olympics website a revamp. The Website may be down between May 22, 2015 and May 25, 2015");
-
-</script>
-
+<div class='page-header'>
 <h3>Welcome To the official page of the Team Hybrid Olympics!</h3>
-
+</div>
 <marquee behavior="scroll" direction="left"><font color="blue">Will be giving the website a revamp and will be adding a few surprises. <font color="red">5/21/2015 <font color="green">event <font color="purple">will <font color="orange">be <font color="blue">held <font color="indigo">like <font color="blue">normal. <font color="red"> <font color="green"> <font color="purple"> <font color="orange"> <font color="blue"> <font color="indigo"> </font></marquee>
 
 Presented by <a href='https://www.youtube.com/channel/UC4abjrVcySqsXZAPtUJzEBQ'> Revamp Creative Studios </a> and Craig Peterson
 
-<div ng-repeat="event in events">
-<button class='btn btn-primary'
-	ng-click='$parent.selected = event'
->{{event.name}}</button>
-</div>
+<select class="form-control" ng-model="selectedName" ng-change="select(selectedName)">
+  <option ng-repeat="event in events">{{event.name}}</option>
+</select>
 <h3>{{selected.name}}</h3>
-<table class='table table-striped'>
+<table class='table table-striped table-bordered'>
 <thead><th>Team name</th><th>Score</th></thead>
 <tbody>
 <tr ng-repeat="team in selected.scores">
@@ -134,8 +135,9 @@ Presented by <a href='https://www.youtube.com/channel/UC4abjrVcySqsXZAPtUJzEBQ'>
 </tr>
 </tbody>
 </table>
-
-
+The schedule for each event is <a href='https://docs.google.com/spreadsheets/d/184T4L3FmELmS3OOhL3x3jJpspDtH8IhCXDzyP-oULSY/pubhtml?gid=1544803907&single=true'>Here</a><br/>
+Want to look at the code behind the website? Go to <a href='https://github.com/Thedude7054/thedude7054.github.io'>https://github.com/Thedude7054/thedude7054.github.io</a>
 </div>
+
 </body>
 </html>
