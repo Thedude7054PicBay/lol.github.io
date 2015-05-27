@@ -80,7 +80,6 @@ var events = [
 		{team:"Wills", score:"0 Points (No score) "},
 	]},
 	{name:"Stacking Golf Balls: Anderson",scores:[
-		{team:"Anderson", score:"100%"},	
 		{team:"Caggiano", score:"100%"},
 		{team:"Casorio", score:"100%"},
 		{team:"GhostButlers", score:"92.3%"},
@@ -88,6 +87,7 @@ var events = [
 		{team:"Wills", score:"0%"},
 		{team:"Olsen", score:"0%"},
 		{team:"Turano", score:"0%"},
+		{team:"Anderson", score:"100%"},
 	]},
 
 ];
@@ -122,6 +122,19 @@ angular.module('myApp', [])
 
 Presented by <a href='https://www.youtube.com/channel/UC4abjrVcySqsXZAPtUJzEBQ'> Revamp Creative Studios </a> and Craig Peterson
 
+<div id="#div-1b"
+Hello this is cool person text!
+</div>
+
+<style>
+#div-1b {
+    position:absolute;
+    right: -20px;
+    top:  45px;
+    width: 20px;
+}
+</style>
+
 <select class="form-control" ng-model="selectedName" ng-change="select(selectedName)">
   <option ng-repeat="event in events">{{event.name}}</option>
 </select>
@@ -137,7 +150,7 @@ Presented by <a href='https://www.youtube.com/channel/UC4abjrVcySqsXZAPtUJzEBQ'>
 </table>
 The schedule for each event is <a href='https://docs.google.com/spreadsheets/d/184T4L3FmELmS3OOhL3x3jJpspDtH8IhCXDzyP-oULSY/pubhtml?gid=1544803907&single=true'>Here</a><br/>
 Want to look at the code behind the website? Go to <a href='https://github.com/Thedude7054/thedude7054.github.io'>https://github.com/Thedude7054/thedude7054.github.io</a>
-</div>
+
 
 </body>
 </html>
